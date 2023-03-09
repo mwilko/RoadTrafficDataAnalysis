@@ -35,14 +35,18 @@ namespace RoadTrafficDataAnalysis
             Array.Sort(road1_256Array);
             Array.Reverse(road1_256Array);
             searching.TenthIndex(road1_256Array);
-            //foreach (var item in road1_256Array)
-            //{
-            //    Console.WriteLine(item);
-            //}
+
+            //foreach to check the file indexes
+            foreach (var item in road1_256Array)
+            {
+                Console.WriteLine(item);
+            }
 
             Array.Sort(road2_256Array);
             Array.Reverse(road2_256Array);
             searching.TenthIndex(road2_256Array);
+
+            //foreach to check the file indexes
             //foreach (var item in road2_256Array)
             //{
             //    Console.WriteLine(item);
@@ -51,6 +55,8 @@ namespace RoadTrafficDataAnalysis
             Array.Sort(road3_256Array);
             Array.Reverse(road3_256Array);
             searching.TenthIndex(road3_256Array);
+
+            //foreach to check the file indexes
             //foreach (var item in road3_256Array)
             //{
             //    Console.WriteLine(item);
@@ -91,7 +97,7 @@ namespace RoadTrafficDataAnalysis
             }
             else
             {
-                Console.WriteLine("Unknown Error: Program.cs, Line 70: ");
+                Console.WriteLine("Unknown Error: Cant search value in a file");
             }
         }
     }
