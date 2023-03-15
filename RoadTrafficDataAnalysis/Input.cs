@@ -1,7 +1,7 @@
 ﻿using System;
 namespace RoadTrafficDataAnalysis
 {
-	public class Input
+	public class Input : RangeValidation
 	{
 		public Input()
 		{

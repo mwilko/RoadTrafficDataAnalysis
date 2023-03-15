@@ -7,10 +7,11 @@ namespace RoadTrafficDataAnalysis
 		{
 		}
 
-		public void TenthIndex(int[] roadArray)
+		public void TenthValue(int[] roadArray)
 		{
 			//method which itterates through a given array till the tenth
 			//index and outputs it to the user
+			//(i == numberOfValue !valueIndex)
 			int i = 0;
 			foreach (var item in roadArray)
 			{
@@ -22,7 +23,25 @@ namespace RoadTrafficDataAnalysis
 
 			}
 		}
-		public void SearchValue(int value, int[] roadArray)
+
+        public void FifiethValue(int[] roadArray)
+        {
+            //method which itterates through a given array till the tenth
+            //index and outputs it to the user
+            //(i == numberOfValue !valueIndex)
+            int i = 0;
+            foreach (var item in roadArray)
+            {
+                i++;
+                if (i == 50)
+                {
+                    Console.WriteLine(item);
+                }
+
+            }
+        }
+
+        public void SearchValue(int value, int[] roadArray)
 		{
 			//method which searches an array for the value parameter
 			//if found it outputs the value and its index in the array
@@ -38,7 +57,7 @@ namespace RoadTrafficDataAnalysis
                 if (trafficData == value)
 				{
 					valueFound++;
-					Console.WriteLine($"{value} at index: {index} ");
+					Console.WriteLine($"{value} at index: {index} (Arrays start at 0) ");
 				}
                 index++;
             }
@@ -47,16 +66,17 @@ namespace RoadTrafficDataAnalysis
             {
                 Console.WriteLine($"Error: Value - '{value}', is not found in the selected file. ");
 
-				for (int i = 1; i < roadArray.Length; i++)
+				//changed i to 0 from 1 since index 0 in the list/array would not be found
+				for (int i = 0; i < roadArray.Length; i++)
 				{
-					int absDifference = Math.Abs(roadArray[i] - value);
+					int absoluteDifference = Math.Abs(roadArray[i] - value);
 					int closestDifference = Math.Abs(valueNearest - value);
 
-					if (absDifference == closestDifference)
+					if (absoluteDifference == closestDifference)
 					{
 						nearestValues.Add(i);
 					}
-					else if (absDifference < closestDifference)
+					else if (absoluteDifference < closestDifference)
 					{
 						valueNearest = roadArray[i];
 						nearestValues.Clear();
