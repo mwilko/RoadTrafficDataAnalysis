@@ -66,7 +66,8 @@ namespace RoadTrafficDataAnalysis
 
             //-----------------------------------------------------------------
             //Search selected array for a user-defined value.
-            //Provide index(s) or display error message
+            //Provide index(s) or display error message / if not found display
+            //
             //-----------------------------------------------------------------
             bool isValid = false;
             int choice = 0;
@@ -106,8 +107,63 @@ namespace RoadTrafficDataAnalysis
             //Merging Road_1_256 and Road_3_256 into one text file and then
             //repeating taks 2-4
             //-----------------------------------------------------------------
-            fileName
-            using (FileStream fs = File.Create())
+            string txtFile = "Road1+3_256.txt";
+
+            //merging road 1 and road 2 text files with one and other
+            using (StreamWriter w = File.CreateText(txtFile))
+            {
+                //adding all road1_256 values to text file
+                foreach (var item in road1_256Array)
+                {
+                    w.WriteLine(item);
+                }
+                //adding all road3_256 values to text file
+                foreach (var item in road3_256Array)
+                {
+                    w.WriteLine(item);
+                }
+            }
+
+            //reading all text from merged file and writing to string variable
+            string road1And3MergeText = File.ReadAllText(txtFile);
+
+            //implementing SteamWriter created error about empty strings not being able to join int array
+            //fixed with added where and select methods & validation
+            int[] road1And3MergeArray = road1And3MergeText.Split('\n')
+                .Where(line => !string.IsNullOrWhiteSpace(line))//ensures no empty/null values
+                .Select(line =>
+                {
+                    int value;
+                    if (int.TryParse(line, out value))
+                    {
+                        return value;
+                    }
+                    else
+                    {
+                        //if input is not an integer value or empty space
+                        Console.WriteLine($"Could not parse line '{line}' to an integer.");
+                        return 0;
+                    }
+                })
+                .ToArray();
+
+            //foreach (var item in road1And3MergeArray)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Array.Sort(road1And3MergeArray);
+            Array.Reverse(road1And3MergeArray);
+            searching.TenthValue(road1And3MergeArray);
+
+            //validation and loop for the user-defined
+            //value to be searched in the array
+            int mergedValue = 0;
+            Console.WriteLine("What value would you like to search for? ");
+            value = GetInputAndTypeValidate(mergedValue);
+            //seaching for given value in merged array
+            searching.SearchValue(mergedValue, road1And3MergeArray);
+
         }
     }
 }

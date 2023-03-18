@@ -13,15 +13,24 @@ namespace RoadTrafficDataAnalysis
 			//index and outputs it to the user
 			//(i == numberOfValue !valueIndex)
 			int i = 0;
+			int iterations = 0;
+			int steps = 0;
+
+			//step 1 of the tenth value searching algorithm
+			Console.WriteLine($"Displaying Tenth Value in the selected array: ");
+			steps++;
+
 			foreach (var item in roadArray)
 			{
 				i++;
+				iterations++;
 				if (i == 10)
 				{
 					Console.WriteLine(item);
 				}
 
 			}
+			Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}': ");
 		}
 
         public void FifiethValue(int[] roadArray)
@@ -30,15 +39,23 @@ namespace RoadTrafficDataAnalysis
             //index and outputs it to the user
             //(i == numberOfValue !valueIndex)
             int i = 0;
+            int iterations = 0;
+            int steps = 0;
+
+            //step 1 of the tenth value searching algorithm
+            Console.WriteLine($"Displaying Tenth Value in the selected array: ");
+            steps++;
+
             foreach (var item in roadArray)
             {
                 i++;
+				iterations++;
                 if (i == 50)
                 {
                     Console.WriteLine(item);
                 }
-
             }
+            Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}': ");
         }
 
         public void SearchValue(int value, int[] roadArray)
