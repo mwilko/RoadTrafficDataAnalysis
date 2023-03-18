@@ -102,12 +102,15 @@ namespace RoadTrafficDataAnalysis
 				}
 				if (nearestValues.Count == 1)
 				{
-					Console.WriteLine($"Value nearest to '{value}' is at index '{nearestValues[0]}'");
-				}
-				else
+                    Console.WriteLine($"Value nearest to '{value}' is at index " +
+						$"'{nearestValues[0]}' with a value of '{roadArray[nearestValues[0]]}'");
+                }
+                else
 				{
-					Console.WriteLine($"Values nearest to '{value}' are at indexes '{string.Join(", ", nearestValues)}'");
-				}
+					//altering the select method of narestValues to output the index value and position when called upon (in the next Console.WriteLine)
+                    string nearestValuesString = string.Join(", ", nearestValues.Select(index => $"'{roadArray[index]}' at index '{index}'"));
+                    Console.WriteLine($"Values nearest to '{value}' are at indexes {nearestValuesString}");
+                }
             }
 
 

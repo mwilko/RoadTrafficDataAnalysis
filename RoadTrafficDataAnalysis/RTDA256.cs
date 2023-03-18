@@ -36,16 +36,18 @@ namespace RoadTrafficDataAnalysis
             //-----------------------------------------------------------------
             Array.Sort(road1_256Array);
             Array.Reverse(road1_256Array);
+            Console.WriteLine("Searching for 10th value in Road 1 256 Array...");
             searching.TenthValue(road1_256Array);
 
             //foreach to check the file indexes
-            foreach (var item in road1_256Array)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in road1_256Array)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             Array.Sort(road2_256Array);
             Array.Reverse(road2_256Array);
+            Console.WriteLine("Searching for 10th value in Road 2 256 Array...");
             searching.TenthValue(road2_256Array);
 
             //foreach to check the file indexes
@@ -56,6 +58,7 @@ namespace RoadTrafficDataAnalysis
 
             Array.Sort(road3_256Array);
             Array.Reverse(road3_256Array);
+            Console.WriteLine("Searching for 10th value in Road 3 256 Array...");
             searching.TenthValue(road3_256Array);
 
             //foreach to check the file indexes
@@ -154,13 +157,15 @@ namespace RoadTrafficDataAnalysis
 
             Array.Sort(road1And3MergeArray);
             Array.Reverse(road1And3MergeArray);
+            Console.WriteLine("Searching for 10th value in Road 1+3 merged Array...");
             searching.TenthValue(road1And3MergeArray);
 
             //validation and loop for the user-defined
             //value to be searched in the array
             int mergedValue = 0;
-            Console.WriteLine("What value would you like to search for? ");
-            value = GetInputAndTypeValidate(mergedValue);
+            Console.WriteLine("What value would you like to search" +
+                " for in the Road 1 and Road 3 256 merged file? ");
+            mergedValue = GetInputAndTypeValidate(mergedValue);
             //seaching for given value in merged array
             searching.SearchValue(mergedValue, road1And3MergeArray);
 
