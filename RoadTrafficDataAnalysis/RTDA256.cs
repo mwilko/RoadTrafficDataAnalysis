@@ -4,7 +4,7 @@ using System.IO;
 namespace RoadTrafficDataAnalysis
 {
     //class RTDA256 (derived class), inherits from class Input (base class)
-	public class RTDA256 : Input
+	public class RTDA256 : Sorting
 	{
 		public RTDA256()
 		{
@@ -34,19 +34,45 @@ namespace RoadTrafficDataAnalysis
             //Sort arrays from accending to decending
             //and display 10th index of the array
             //-----------------------------------------------------------------
-            Array.Sort(road1_256Array);
-            Array.Reverse(road1_256Array);
+            bool isValid = false;
+            int choice = 0;
+
+            //validation for file choice
+            do
+            {
+                Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
+                    " [1] Bubble Sort, [2] Merge Sort: ");
+                choice = GetInputAndTypeValidate(choice);
+                isValid = ValidateRange(choice, 1, 2);
+            } while (!isValid);
+
+            if (choice == 1)//bubble sort
+            {
+                BubbleSort(road1_256Array);
+                BubbleSort(road2_256Array);
+                BubbleSort(road3_256Array);
+            }
+            else if (choice == 2)//merge sort
+            {
+                MergeSort(road1_256Array);
+                MergeSort(road2_256Array);
+                MergeSort(road3_256Array);
+            }
+            else
+            {
+                //error message to catch any unknown errors
+                Console.WriteLine($"Error (Choice while sorting): Please contact IT support: ");
+            }
+
             Console.WriteLine("Searching for 10th value in Road 1 256 Array...");
             searching.TenthValue(road1_256Array);
 
             //foreach to check the file indexes
-            //foreach (var item in road1_256Array)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            foreach (var item in road1_256Array)
+            {
+                Console.WriteLine(item);
+            }
 
-            Array.Sort(road2_256Array);
-            Array.Reverse(road2_256Array);
             Console.WriteLine("Searching for 10th value in Road 2 256 Array...");
             searching.TenthValue(road2_256Array);
 
@@ -56,8 +82,6 @@ namespace RoadTrafficDataAnalysis
             //    Console.WriteLine(item);
             //}
 
-            Array.Sort(road3_256Array);
-            Array.Reverse(road3_256Array);
             Console.WriteLine("Searching for 10th value in Road 3 256 Array...");
             searching.TenthValue(road3_256Array);
 
@@ -72,8 +96,8 @@ namespace RoadTrafficDataAnalysis
             //Provide index(s) or display error message / if not found display
             //
             //-----------------------------------------------------------------
-            bool isValid = false;
-            int choice = 0;
+            isValid = false;
+            choice = 0;
 
             //validation for file choice
             do

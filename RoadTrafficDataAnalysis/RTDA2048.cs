@@ -4,7 +4,7 @@ using System.IO;
 namespace RoadTrafficDataAnalysis
 {
     //class RTDA2048 (derived class), inherits from class Input (base class)
-    public class RTDA2048 : Input
+    public class RTDA2048 : Sorting
 	{
 		public RTDA2048()
 		{
@@ -34,8 +34,37 @@ namespace RoadTrafficDataAnalysis
             //Sort arrays from accending to decending
             //and display 10th index of the array
             //-----------------------------------------------------------------
-            Array.Sort(road1_2048Array);
-            Array.Reverse(road1_2048Array);
+
+            bool isValid = false;
+            int choice = 0;
+
+            //validation for file choice
+            do
+            {
+                Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
+                    " [1] Bubble Sort, [2] Merge Sort: ");
+                choice = GetInputAndTypeValidate(choice);
+                isValid = ValidateRange(choice, 1, 2);
+            } while (!isValid);
+
+            if (choice == 1)//bubble sort
+            {
+                BubbleSort(road1_2048Array);
+                BubbleSort(road2_2048Array);
+                BubbleSort(road3_2048Array);
+            }
+            else if (choice == 2)//merge sort
+            {
+                MergeSort(road1_2048Array);
+                MergeSort(road2_2048Array);
+                MergeSort(road3_2048Array);
+            }
+            else
+            {
+                //error message to catch any unknown errors
+                Console.WriteLine($"Error (Choice while sorting): Please contact IT support: ");
+            }
+
             Console.WriteLine("Searching for 50th value in Road 1 2048 Array...");
             searching.FifiethValue(road1_2048Array);
 
@@ -45,8 +74,6 @@ namespace RoadTrafficDataAnalysis
             //    Console.WriteLine(item);
             //}
 
-            Array.Sort(road2_2048Array);
-            Array.Reverse(road2_2048Array);
             Console.WriteLine("Searching for 50th value in Road 2 2048 Array...");
             searching.FifiethValue(road2_2048Array);
 
@@ -56,8 +83,6 @@ namespace RoadTrafficDataAnalysis
             //    Console.WriteLine(item);
             //}
 
-            Array.Sort(road3_2048Array);
-            Array.Reverse(road3_2048Array);
             Console.WriteLine("Searching for 50th value in Road 3 2048 Array...");
             searching.TenthValue(road3_2048Array);
 
@@ -71,8 +96,8 @@ namespace RoadTrafficDataAnalysis
             //Search selected array for a user-defined value.
             //Provide index(s) or display error message
             //-----------------------------------------------------------------
-            bool isValid = false;
-            int choice = 0;
+            isValid = false;
+            choice = 0;
 
             //validation for file choice
             do
