@@ -42,26 +42,24 @@ namespace RoadTrafficDataAnalysis
         {
             int left = 0;
             int right = arr.Length - 1;
-            int iterations = 0;
             int steps = 0;
 
-            steps++;
             while (left <= right)
             {
                 int mid = (left + right) / 2;
                 if (arr[mid] == target)
                 {
-                    iterations++;
+                    steps++;
                     return mid;
                 }
                 else if (arr[mid] < target)
                 {
-                    iterations++;
+                    steps++;
                     left = mid + 1;
                 }
                 else
                 {
-                    iterations++;
+                    steps++;
                     right = mid - 1;
                 }
             }
@@ -70,7 +68,6 @@ namespace RoadTrafficDataAnalysis
             int valueNearest = arr[0];
             List<int> nearestValues = new List<int>();
 
-            steps++;
             for (int i = 0; i < arr.Length; i++)
             {
                 int absoluteDifference = Math.Abs(arr[i] - target);
@@ -78,12 +75,12 @@ namespace RoadTrafficDataAnalysis
 
                 if (absoluteDifference == closestDifference)
                 {
-                    iterations++;
+                    steps++;
                     nearestValues.Add(i);
                 }
                 else if (absoluteDifference < closestDifference)
                 {
-                    iterations++;
+                    steps++;
                     valueNearest = arr[i];
                     nearestValues.Clear();
                     nearestValues.Add(i);
@@ -92,18 +89,16 @@ namespace RoadTrafficDataAnalysis
 
             if (nearestValues.Count == 1)
             {
-                steps++;
                 Console.WriteLine($"Value nearest to '{target}' is at index " +
                     $"'{nearestValues[0]}' with a value of '{arr[nearestValues[0]]}'");
             }
             else
             {
-                steps++;
                 //altering the select method of nearestValues to output the index value and position when called upon (in the next Console.WriteLine)
                 string nearestValuesString = string.Join(", ", nearestValues.Select(index => $"'{arr[index]}' at index '{index}'"));
                 Console.WriteLine($"Values nearest to '{target}' are at indexes {nearestValuesString}");
             }
-            Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}' \n ");
+            Console.WriteLine($"Steps done in binary search: '{steps}' \n ");
             return -1;
         }
 
@@ -115,24 +110,22 @@ namespace RoadTrafficDataAnalysis
             //index and outputs it to the user
             //(i == numberOfValue !valueIndex)
             int i = 0;
-            int iterations = 0;
             int steps = 0;
 
             //step 1 of the tenth value searching algorithm
             Console.WriteLine($"Displaying Tenth Value in the selected array: ");
-            steps++;
 
             foreach (var item in roadArray)
             {
                 i++;
-                iterations++;
+                steps++;
                 if (i == 10)
                 {
                     Console.WriteLine(item);
                 }
 
             }
-            Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}': \n");
+            Console.WriteLine($"Steps done searching 10th Value: '{steps}': \n");
         }
 
         public void FifiethValue(int[] roadArray)
@@ -141,23 +134,21 @@ namespace RoadTrafficDataAnalysis
             //index and outputs it to the user
             //(i == numberOfValue !valueIndex)
             int i = 0;
-            int iterations = 0;
             int steps = 0;
 
             //step 1 of the tenth value searching algorithm
             Console.WriteLine($"Displaying Tenth Value in the selected array: ");
-            steps++;
 
             foreach (var item in roadArray)
             {
                 i++;
-                iterations++;
+                steps++;
                 if (i == 50)
                 {
                     Console.WriteLine(item);
                 }
             }
-            Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}': \n");
+            Console.WriteLine($"Steps done searching 50th Value: '{steps}': \n");
         }
 
         public void SearchValue(int value, int[] roadArray)
@@ -168,7 +159,6 @@ namespace RoadTrafficDataAnalysis
                 int index = 0;
                 int valueFound = 0;
                 int valueNearest = roadArray[0];
-                int iterations = 0;
                 int steps = 0;
                 List<int> nearestValues = new List<int>();
 
@@ -193,7 +183,7 @@ namespace RoadTrafficDataAnalysis
                     steps++;
                     foreach (int trafficData in roadArray)
                     {
-                        iterations++;
+                        steps++;
                         //array indexing starts at 0
                         if (trafficData == value)
                         {
@@ -203,7 +193,6 @@ namespace RoadTrafficDataAnalysis
                         index++;
                     }
                     //if value is not found in the array, output this error message
-                    steps++;
                     if (valueFound == 0)
                     {
                         Console.WriteLine($"Error: Value - '{value}', is not found in the selected file. ");
@@ -216,12 +205,12 @@ namespace RoadTrafficDataAnalysis
 
                             if (absoluteDifference == closestDifference)
                             {
-                                iterations++;
+                                steps++;
                                 nearestValues.Add(i);
                             }
                             else if (absoluteDifference < closestDifference)
                             {
-                                iterations++;
+                                steps++;
                                 valueNearest = roadArray[i];
                                 nearestValues.Clear();
                                 nearestValues.Add(i);
@@ -241,7 +230,7 @@ namespace RoadTrafficDataAnalysis
                             Console.WriteLine($"Values nearest to '{value}' are at indexes {nearestValuesString}");
                         }
                     }
-                    Console.WriteLine($"Iterations made '{iterations}', Steps done '{steps}' \n ");
+                    Console.WriteLine($"Steps done in linear search: '{steps}' \n ");
                 }
             }
         }

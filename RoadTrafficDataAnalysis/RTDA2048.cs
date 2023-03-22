@@ -48,35 +48,53 @@ namespace RoadTrafficDataAnalysis
             do
             {
                 Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
-                    " [1] Bubble Sort, [2] Merge Sort: ");
+                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort: ");
                 choice = GetInputAndTypeValidate(choice);
-                isValid = ValidateRange(choice, 1, 2);
+                isValid = ValidateRange(choice, 1, 3);
             } while (!isValid);
 
             if (choice == 1)//bubble sort
             {
-                //decending ordered arrays
+                //ascending to desending ordered arrays
                 BubbleSort(road1_2048Array);
                 BubbleSort(road2_2048Array);
                 BubbleSort(road3_2048Array);
-                //ascending ordered arrays
-                road1_2048ArrayAscending = BubbleSortDecending(road1_2048ArrayAscending);
-                road2_2048ArrayAscending = BubbleSortDecending(road2_2048ArrayAscending);
-                road3_2048ArrayAscending = BubbleSortDecending(road3_2048ArrayAscending);
-
-
+                //desending to ascending ordered arrays
+                BubbleSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                BubbleSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                BubbleSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
             }
             else if (choice == 2)//merge sort
             {
-                //decending ordered arrays
+                //decending to ascending ordered arrays
                 MergeSort(road1_2048Array);
                 MergeSort(road2_2048Array);
                 MergeSort(road3_2048Array);
-                //ascending ordered arrays
-                MergeSortDescending(road1_2048ArrayAscending);
-                MergeSortDescending(road2_2048ArrayAscending);
-                MergeSortDescending(road3_2048ArrayAscending);
+                //ascending to ascending ordered arrays
+                MergeSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                MergeSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                MergeSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
 
+            }
+            else if (choice == 3)//quick sort
+            {
+                //decending to ascending ordered arrays
+                QuickSort(road1_2048Array);
+                QuickSort(road2_2048Array);
+                QuickSort(road3_2048Array);
+                //ascending to ascending ordered arrays
+                QuickSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                QuickSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                QuickSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
             }
             else
             {
@@ -232,24 +250,53 @@ namespace RoadTrafficDataAnalysis
             do
             {
                 Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
-                    " [1] Bubble Sort, [2] Merge Sort: ");
+                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort: ");
                 choice = GetInputAndTypeValidate(choice);
-                isValid = ValidateRange(choice, 1, 2);
+                isValid = ValidateRange(choice, 1, 3);
             } while (!isValid);
 
             if (choice == 1)//bubble sort
             {
-                //decending ordered array
-                BubbleSort(road1And3MergeArray);
-                //ascending ordered array
-                road1And3MergeArrayAscending = BubbleSortDecending(road1And3MergeArrayAscending);
+                //ascending to desending ordered arrays
+                BubbleSort(road1_2048Array);
+                BubbleSort(road2_2048Array);
+                BubbleSort(road3_2048Array);
+                //desending to ascending ordered arrays
+                BubbleSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                BubbleSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                BubbleSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
             }
             else if (choice == 2)//merge sort
             {
-                //decending ordered array
-                MergeSort(road1And3MergeArray);
-                //ascending ordered array
-                MergeSortDescending(road1And3MergeArrayAscending);
+                //decending to ascending ordered arrays
+                MergeSort(road1_2048Array);
+                MergeSort(road2_2048Array);
+                MergeSort(road3_2048Array);
+                //ascending to ascending ordered arrays
+                MergeSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                MergeSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                MergeSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
+
+            }
+            else if (choice == 3)//quick sort
+            {
+                //decending to ascending ordered arrays
+                QuickSort(road1_2048Array);
+                QuickSort(road2_2048Array);
+                QuickSort(road3_2048Array);
+                //ascending to ascending ordered arrays
+                QuickSort(road1_2048ArrayAscending);
+                ReverseArray(road1_2048ArrayAscending);
+                QuickSort(road2_2048ArrayAscending);
+                ReverseArray(road2_2048ArrayAscending);
+                QuickSort(road3_2048ArrayAscending);
+                ReverseArray(road3_2048ArrayAscending);
             }
             else
             {
