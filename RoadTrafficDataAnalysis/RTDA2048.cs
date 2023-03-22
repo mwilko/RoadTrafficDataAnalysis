@@ -56,45 +56,53 @@ namespace RoadTrafficDataAnalysis
             if (choice == 1)//bubble sort
             {
                 //ascending to desending ordered arrays
-                BubbleSort(road1_2048Array);
-                BubbleSort(road2_2048Array);
-                BubbleSort(road3_2048Array);
+                BubbleSort(road1_2048Array, "Road_1_2048s Array");
+                BubbleSort(road2_2048Array, "Road_2_2048 Array");
+                BubbleSort(road3_2048Array, "Road_3_2048 Array");
+                Console.WriteLine("\n");
                 //desending to ascending ordered arrays
-                BubbleSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                BubbleSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                BubbleSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                BubbleSort(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse not implemented)");
+                ReverseArray(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse implemented)");
+                BubbleSort(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse not implemented)");
+                ReverseArray(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse implemented)");
+                BubbleSort(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse not implemented)");
+                ReverseArray(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
+
             }
             else if (choice == 2)//merge sort
             {
                 //decending to ascending ordered arrays
-                MergeSort(road1_2048Array);
-                MergeSort(road2_2048Array);
-                MergeSort(road3_2048Array);
+                MergeSort(road1_2048Array, "Road_1_2048 Array");
+                MergeSort(road2_2048Array, "Road_2_2048 Array");
+                MergeSort(road3_2048Array, "Road_3_2048 Array");
+                Console.WriteLine("\n");
                 //ascending to ascending ordered arrays
-                MergeSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                MergeSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                MergeSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                MergeSort(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse not implemented)");
+                ReverseArray(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse implemented)");
+                MergeSort(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse not implemented)");
+                ReverseArray(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse implemented)");
+                MergeSort(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse not implemented)");
+                ReverseArray(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
 
             }
             else if (choice == 3)//quick sort
             {
                 //decending to ascending ordered arrays
-                QuickSort(road1_2048Array);
-                QuickSort(road2_2048Array);
-                QuickSort(road3_2048Array);
+                QuickSort(road1_2048Array, "Road_1_2048 Array");
+                QuickSort(road2_2048Array, "Road_2_2048 Array");
+                QuickSort(road3_2048Array, "Road_3_2048 Array");
+                Console.WriteLine("\n");
                 //ascending to ascending ordered arrays
-                QuickSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                QuickSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                QuickSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                QuickSort(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse not implemented)");
+                ReverseArray(road1_2048ArrayAscending, "Road_1_2048 Array (Reverse implemented)");
+                QuickSort(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse not implemented)");
+                ReverseArray(road2_2048ArrayAscending, "Road_2_2048 Array (Reverse implemented)");
+                QuickSort(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse not implemented)");
+                ReverseArray(road3_2048ArrayAscending, "Road_3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
+
             }
             else
             {
@@ -258,45 +266,35 @@ namespace RoadTrafficDataAnalysis
             if (choice == 1)//bubble sort
             {
                 //ascending to desending ordered arrays
-                BubbleSort(road1_2048Array);
-                BubbleSort(road2_2048Array);
-                BubbleSort(road3_2048Array);
+                BubbleSort(road1And3MergeArray, "Road_1+3_2048s Array");
+                Console.WriteLine("\n");
                 //desending to ascending ordered arrays
-                BubbleSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                BubbleSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                BubbleSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                BubbleSort(road1And3MergeArrayAscending, "Road_1+3_2048 Arra (Reverse not implemented)");
+                ReverseArray(road1And3MergeArrayAscending, "Road_1+3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
+
             }
             else if (choice == 2)//merge sort
             {
                 //decending to ascending ordered arrays
-                MergeSort(road1_2048Array);
-                MergeSort(road2_2048Array);
-                MergeSort(road3_2048Array);
+                MergeSort(road1And3MergeArray, "Road_1+3_2048 Array");
+                Console.WriteLine("\n");
                 //ascending to ascending ordered arrays
-                MergeSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                MergeSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                MergeSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                MergeSort(road1And3MergeArrayAscending, "Road_1+3_2048 Array (Reverse not implemented)");
+                ReverseArray(road1And3MergeArrayAscending, "Road_1+3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
 
             }
             else if (choice == 3)//quick sort
             {
                 //decending to ascending ordered arrays
-                QuickSort(road1_2048Array);
-                QuickSort(road2_2048Array);
-                QuickSort(road3_2048Array);
+                QuickSort(road1And3MergeArray, "Road_1+3_2048 Array");
+                Console.WriteLine("\n");
                 //ascending to ascending ordered arrays
-                QuickSort(road1_2048ArrayAscending);
-                ReverseArray(road1_2048ArrayAscending);
-                QuickSort(road2_2048ArrayAscending);
-                ReverseArray(road2_2048ArrayAscending);
-                QuickSort(road3_2048ArrayAscending);
-                ReverseArray(road3_2048ArrayAscending);
+                QuickSort(road1And3MergeArrayAscending, "Road_1+3_2048 Array (Reverse not implemented)");
+                ReverseArray(road1And3MergeArrayAscending, "Road_1+3_2048 Array (Reverse implemented)");
+                Console.WriteLine("\n");
+
             }
             else
             {

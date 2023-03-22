@@ -9,6 +9,7 @@ namespace RoadTrafficDataAnalysis
         {
         }
         Input input = new Input();
+        Sorting sorting = new Sorting();
 
         //binary search implimented for more searches to be used
         //implimented algorithms steps and iterations
@@ -176,7 +177,7 @@ namespace RoadTrafficDataAnalysis
                 if (choice == 1) //binary search is chosen
                 {
                     //binary search algorithm to look for user input
-                    BinarySearch(roadArray, value);                    
+                    BinarySearch(roadArray, value);
                 }
                 else if (choice == 2)//linear search is chosen
                 {

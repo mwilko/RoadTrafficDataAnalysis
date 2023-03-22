@@ -8,7 +8,7 @@ namespace RoadTrafficDataAnalysis
         }
 
         //algorithm to reverse given array
-        public void ReverseArray(int[] roadArray)
+        public void ReverseArray(int[] roadArray, string arrayName)
         {
             int left = 0;
             int right = roadArray.Length - 1;
@@ -24,7 +24,7 @@ namespace RoadTrafficDataAnalysis
                 right--;
                 steps++;
             }
-            Console.WriteLine($"Steps while reversing {roadArray}: '{steps}' ");
+            Console.WriteLine($"Steps while reversing {arrayName}: '{steps}' ");
         }
 
         //bubble sort algorithm implemented to sort by ascending to desending
@@ -47,7 +47,7 @@ namespace RoadTrafficDataAnalysis
         //
 
         //bubble sort algorithm
-        public void BubbleSort(int[] roadArray)
+        public void BubbleSort(int[] roadArray, string arrayName)
         {
             int temp;
             int steps = 0; //used to calculate steps in algorithm
@@ -65,7 +65,7 @@ namespace RoadTrafficDataAnalysis
                     steps++;
                 }
             }
-            Console.WriteLine($"Steps while Bubble Sorting {roadArray}: '{steps}' ");
+            Console.WriteLine($"Steps while Bubble Sorting {arrayName}: '{steps}' ");
         }
 
         //mergesort method and merge method used for the Merge Sort algorithm
@@ -89,15 +89,15 @@ namespace RoadTrafficDataAnalysis
 
         //merge sort algorithm
         //steps referenced so it is not overridden or set to 0 when initiated
-        public static void MergeSort(int[] roadArray)
+        public void MergeSort(int[] roadArray, string arrayName)
         {
             int steps = 0;
             Sort(roadArray, 0, roadArray.Length - 1, ref steps);
-            Console.WriteLine($"Steps while Merge Sorting {roadArray}: '{steps}' ");
+            Console.WriteLine($"Steps while Merge Sorting {arrayName}: '{steps}' ");
 
         }
 
-        private static void Sort(int[] roadArray, int left, int right, ref int steps)
+        private void Sort(int[] roadArray, int left, int right, ref int steps)
         {
             if (left >= right)
             {
@@ -107,10 +107,10 @@ namespace RoadTrafficDataAnalysis
             int mid = left + (right - left) / 2;
             Sort(roadArray, left, mid, ref steps);
             Sort(roadArray, mid + 1, right, ref steps);
-            Merge(roadArray, left, mid, right, steps);
+            Merge(roadArray, left, mid, right, ref steps);
         }
 
-        private static void Merge(int[] roadArray, int left, int mid, int right, int steps)
+        private void Merge(int[] roadArray, int left, int mid, int right, ref int steps)
         {
             int[] temp = new int[roadArray.Length];
             for (int i = left; i <= right; i++)
@@ -148,14 +148,14 @@ namespace RoadTrafficDataAnalysis
         }
 
         //quick sort algorithm
-        public static void QuickSort(int[] roadArray)
+        public void QuickSort(int[] roadArray, string arrayName)
         {
             int steps = 0; //added to track steps of algorithm
             QuickSort(roadArray, 0, roadArray.Length - 1, ref steps);
-            Console.WriteLine($"Steps while Bubble Sorting {roadArray}: '{steps}' ");
+            Console.WriteLine($"Steps while Bubble Sorting {arrayName}: '{steps}' ");
         }
 
-        private static void QuickSort(int[] roadArray, int leftIndex, int rightIndex, ref int steps)
+        private void QuickSort(int[] roadArray, int leftIndex, int rightIndex, ref int steps)
         {
             if (leftIndex >= rightIndex)
             {
