@@ -19,14 +19,19 @@ namespace RoadTrafficDataAnalysis
             string road1_256 = "Road_1_256.txt";
             string road1_256Text = File.ReadAllText(road1_256);
             int[] road1_256Array = road1_256Text.Split('\n').Select(int.Parse).ToArray();
+            int[] road1_256ArrayAscending = road1_256Text.Split('\n').Select(int.Parse).ToArray();
 
             string road2_256 = "Road_2_256.txt";
             string road2_256Text = File.ReadAllText(road2_256);
             int[] road2_256Array = road2_256Text.Split('\n').Select(int.Parse).ToArray();
+            int[] road2_256ArrayAscending = road2_256Text.Split('\n').Select(int.Parse).ToArray();
+
 
             string road3_256 = "Road_1_256.txt";
             string road3_256Text = File.ReadAllText(road3_256);
             int[] road3_256Array = road3_256Text.Split('\n').Select(int.Parse).ToArray();
+            int[] road3_256ArrayAscending = road3_256Text.Split('\n').Select(int.Parse).ToArray();
+
 
             Searching searching = new Searching();
 
@@ -48,15 +53,28 @@ namespace RoadTrafficDataAnalysis
 
             if (choice == 1)//bubble sort
             {
+                //decending ordered arrays
                 BubbleSort(road1_256Array);
                 BubbleSort(road2_256Array);
                 BubbleSort(road3_256Array);
+                //ascending ordered arrays
+                road1_256ArrayAscending = BubbleSortDecending(road1_256ArrayAscending);
+                road2_256ArrayAscending = BubbleSortDecending(road2_256ArrayAscending);
+                road3_256ArrayAscending = BubbleSortDecending(road3_256ArrayAscending);
+
+
             }
             else if (choice == 2)//merge sort
             {
+                //decending ordered arrays
                 MergeSort(road1_256Array);
                 MergeSort(road2_256Array);
                 MergeSort(road3_256Array);
+                //ascending ordered arrays
+                MergeSortDescending(road1_256ArrayAscending);
+                MergeSortDescending(road2_256ArrayAscending);
+                MergeSortDescending(road3_256ArrayAscending);
+
             }
             else
             {
@@ -64,17 +82,29 @@ namespace RoadTrafficDataAnalysis
                 Console.WriteLine($"Error (Choice while sorting): Please contact IT support: ");
             }
 
-            Console.WriteLine("Searching for 10th value in Road 1 256 Array...");
+            Console.WriteLine("Searching for 10th value in Road 1 256 Array (High-Low)...");
             searching.TenthValue(road1_256Array);
+            Console.WriteLine("Searching for 10th value in Road 1 256 Array (Low-High)...");
+            searching.TenthValue(road1_256ArrayAscending);
 
-            //foreach to check the file indexes
-            foreach (var item in road1_256Array)
-            {
-                Console.WriteLine(item);
-            }
 
-            Console.WriteLine("Searching for 10th value in Road 2 256 Array...");
+            ////foreach to check the file indexes
+            //foreach (var item in road1_256Array)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine("NEXT ARRAY START");
+            //foreach (var item in road1_256ArrayAscending)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Console.WriteLine("Searching for 10th value in Road 2 256 Array (High-Low)...");
             searching.TenthValue(road2_256Array);
+            Console.WriteLine("Searching for 10th value in Road 2 256 Array (Low-High)...");
+
+            searching.TenthValue(road2_256ArrayAscending);
+
 
             //foreach to check the file indexes
             //foreach (var item in road2_256Array)
@@ -82,8 +112,12 @@ namespace RoadTrafficDataAnalysis
             //    Console.WriteLine(item);
             //}
 
-            Console.WriteLine("Searching for 10th value in Road 3 256 Array...");
+            Console.WriteLine("Searching for 10th value in Road 3 256 Array (High-Low)...");
             searching.TenthValue(road3_256Array);
+            Console.WriteLine("Searching for 10th value in Road 3 256 Array (Low-High)...");
+
+            searching.TenthValue(road3_256ArrayAscending);
+
 
             //foreach to check the file indexes
             //foreach (var item in road3_256Array)
@@ -174,15 +208,69 @@ namespace RoadTrafficDataAnalysis
                 })
                 .ToArray();
 
+            int[] road1And3MergeArrayAscending = road1And3MergeText.Split('\n')
+            .Where(line => !string.IsNullOrWhiteSpace(line))//ensures no empty/null values
+            .Select(line =>
+            {
+                int value;
+                if (int.TryParse(line, out value))
+                {
+                    return value;
+                }   
+                else
+                {
+                    //if input is not an integer value or empty space
+                    Console.WriteLine($"Could not parse line '{line}' to an integer.");
+                    return 0;
+                }
+            })
+            .ToArray();
+
+            isValid = false;
+            choice = 0;
+
+            //validation for file choice
+            do
+            {
+                Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
+                    " [1] Bubble Sort, [2] Merge Sort: ");
+                choice = GetInputAndTypeValidate(choice);
+                isValid = ValidateRange(choice, 1, 2);
+            } while (!isValid);
+
+            if (choice == 1)//bubble sort
+            {
+                //decending ordered array
+                BubbleSort(road1And3MergeArray);
+                //ascending ordered array
+                road1And3MergeArrayAscending = BubbleSortDecending(road1And3MergeArrayAscending);
+            }
+            else if (choice == 2)//merge sort
+            {
+                //decending ordered array
+                MergeSort(road1And3MergeArray);
+                //ascending ordered array
+                MergeSortDescending(road1And3MergeArrayAscending);
+            }
+            else
+            {
+                //error message to catch any unknown errors
+                Console.WriteLine($"Error (Choice while sorting): Please contact IT support: ");
+            }
+
             //foreach (var item in road1And3MergeArray)
             //{
             //    Console.WriteLine(item);
             //}
+            //Console.WriteLine("NEXT ARRAY START");
+            //foreach (var item in road1And3MergeArrayAscending)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
-            Array.Sort(road1And3MergeArray);
-            Array.Reverse(road1And3MergeArray);
             Console.WriteLine("Searching for 10th value in Road 1+3 merged Array...");
             searching.TenthValue(road1And3MergeArray);
+            searching.TenthValue(road1And3MergeArrayAscending);
 
             //validation and loop for the user-defined
             //value to be searched in the array

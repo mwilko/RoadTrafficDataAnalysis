@@ -1,10 +1,10 @@
 ﻿using System;
 namespace RoadTrafficDataAnalysis
 {
-	public class Sorting : Input
-	{
-		public Sorting()
-		{
+    public class Sorting : Input
+    {
+        public Sorting()
+        {
         }
         //bubble sort algorithm implemented to sort by ascending to desending
         //Referenced:
@@ -40,6 +40,23 @@ namespace RoadTrafficDataAnalysis
                 }
             }
         }
+        public int[] BubbleSortDecending(int[] arr)
+        {
+            int temp;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = 0; j < arr.Length - i - 1; j++)
+                {
+                    if (arr[j] > arr[j + 1])
+                    {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            return arr;
+        }
 
         //mergesort method and merge method used for the Merge Sort algorithm
         //Referenced:
@@ -61,28 +78,112 @@ namespace RoadTrafficDataAnalysis
         //
         public static void MergeSort(int[] arr)
         {
-            if (arr.Length <= 1) return;
-
-            int mid = arr.Length / 2;
-            int[] left = arr.Take(mid).ToArray();
-            int[] right = arr.Skip(mid).ToArray();
-            MergeSort(left);
-            MergeSort(right);
-            //calls the merge method to merge both halfs of the array
-            Merge(arr, left, right);
+            Sort(arr, 0, arr.Length - 1);
         }
 
-        private static void Merge(int[] arr, int[] left, int[] right)
+        private static void Sort(int[] arr, int left, int right)
         {
-            int i = 0, j = 0, k = 0;
+            if (left >= right)
+            {
+                return;
+            }
 
-            while (i < left.Length && j < right.Length)
-                arr[k++] = left[i] <= right[j] ? left[i++] : right[j++];
+            int mid = left + (right - left) / 2;
+            Sort(arr, left, mid);
+            Sort(arr, mid + 1, right);
+            Merge(arr, left, mid, right);
+        }
 
-            while (i < left.Length) arr[k++] = left[i++];
-            while (j < right.Length) arr[k++] = right[j++];
+        private static void Merge(int[] arr, int left, int mid, int right)
+        {
+            int[] temp = new int[arr.Length];
+            for (int i = left; i <= right; i++)
+            {
+                temp[i] = arr[i];
+            }
+
+            int leftIndex = left;
+            int rightIndex = mid + 1;
+            int currentIndex = left;
+
+            while (leftIndex <= mid && rightIndex <= right)
+            {
+                if (temp[leftIndex] <= temp[rightIndex])
+                {
+                    arr[currentIndex] = temp[leftIndex];
+                    leftIndex++;
+                }
+                else
+                {
+                    arr[currentIndex] = temp[rightIndex];
+                    rightIndex++;
+                }
+                currentIndex++;
+            }
+
+            while (leftIndex <= mid)
+            {
+                arr[currentIndex] = temp[leftIndex];
+                leftIndex++;
+                currentIndex++;
+            }
+        }
+
+        public static void MergeSortDescending(int[] arr)
+        {
+            SortDescending(arr, 0, arr.Length - 1);
+        }
+
+        private static void SortDescending(int[] arr, int left, int right)
+        {
+            if (left >= right)
+            {
+                return;
+            }
+
+            int mid = left + (right - left) / 2;
+            SortDescending(arr, left, mid);
+            SortDescending(arr, mid + 1, right);
+            MergeDescending(arr, left, mid, right);
+        }
+
+        private static void MergeDescending(int[] arr, int left, int mid, int right)
+        {
+            int[] temp = new int[arr.Length];
+            for (int i = left; i <= right; i++)
+            {
+                temp[i] = arr[i];
+            }
+
+            int leftIndex = left;
+            int rightIndex = mid + 1;
+            int currentIndex = left;
+
+            while (leftIndex <= mid && rightIndex <= right)
+            {
+                if (temp[leftIndex] >= temp[rightIndex])
+                {
+                    arr[currentIndex] = temp[leftIndex];
+                    leftIndex++;
+                }
+                else
+                {
+                    arr[currentIndex] = temp[rightIndex];
+                    rightIndex++;
+                }
+                currentIndex++;
+            }
+
+            while (leftIndex <= mid)
+            {
+                arr[currentIndex] = temp[leftIndex];
+                leftIndex++;
+                currentIndex++;
+            }
+
+
+
         }
     }
-
 }
 
