@@ -46,9 +46,9 @@ namespace RoadTrafficDataAnalysis
             do
             {
                 Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
-                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort: ");
+                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort [4] Selection Sort: ");
                 choice = GetInputAndTypeValidate(choice);
-                isValid = ValidateRange(choice, 1, 3);
+                isValid = ValidateRange(choice, 1, 4);
             } while (!isValid);
 
             if (choice == 1)//bubble sort
@@ -102,6 +102,22 @@ namespace RoadTrafficDataAnalysis
                 ReverseArray(road3_256ArrayAscending, "Road_3_256 Array (Reverse implemented)");
                 Console.WriteLine("\n");
 
+            }
+            else if (choice == 4)
+            {
+                //decending to ascending ordered arrays
+                SelectionSort(road1_256Array, "Road_1_256 Array");
+                SelectionSort(road2_256Array, "Road_1_256 Array");
+                SelectionSort(road3_256Array, "Road_1_256 Array");
+                Console.WriteLine("\n");
+                //ascending to ascending ordered arrays
+                SelectionSort(road1_256ArrayAscending, "Road_1_256 Array (Reverse not implemented)");
+                ReverseArray(road1_256ArrayAscending, "Road_1_256 Array (Reverse implemented)");
+                SelectionSort(road2_256ArrayAscending, "Road_2_256 Array (Reverse not implemented)");
+                ReverseArray(road2_256ArrayAscending, "Road_2_256 Array (Reverse implemented)");
+                SelectionSort(road3_256ArrayAscending, "Road_3_256 Array (Reverse not implemented)");
+                ReverseArray(road3_256ArrayAscending, "Road_3_256 Array (Reverse implemented)");
+                Console.WriteLine("\n");
             }
             else
             {
@@ -260,9 +276,9 @@ namespace RoadTrafficDataAnalysis
             do
             {
                 Console.WriteLine("What Sorting Algorithm would you like to sort all files as?" +
-                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort: ");
+                    " [1] Bubble Sort, [2] Merge Sort [3] Quick Sort [4] Selection Sort: ");
                 choice = GetInputAndTypeValidate(choice);
-                isValid = ValidateRange(choice, 1, 3);
+                isValid = ValidateRange(choice, 1, 4);
             } while (!isValid);
 
             if (choice == 1)//bubble sort
@@ -297,6 +313,16 @@ namespace RoadTrafficDataAnalysis
                 ReverseArray(road1And3MergeArrayAscending, "Road_1+3_256 Array (Reverse implemented)");
                 Console.WriteLine("\n");
 
+            }
+            else if (choice == 4)
+            {
+                //decending ordered array
+                SelectionSort(road1And3MergeArray, "Road_1+3_256 Array");
+                //ascending ordered array
+                Console.WriteLine("\n");
+                SelectionSort(road1And3MergeArrayAscending, "Road_1+3_256 Array (Reverse not implemented)");
+                ReverseArray(road1And3MergeArrayAscending, "Road_1+3_256 Array (Reverse implemented)");
+                Console.WriteLine("\n");
             }
             else
             {

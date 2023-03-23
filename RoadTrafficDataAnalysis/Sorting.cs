@@ -193,6 +193,32 @@ namespace RoadTrafficDataAnalysis
             QuickSort(roadArray, leftIndex, j, ref steps);
             QuickSort(roadArray, i, rightIndex, ref steps);
         }
+
+        public static void SelectionSort(int[] roadArray, string arrayName)
+        {
+            int steps = 0;
+            for (var i = 0; i < roadArray.Length; i++)
+            {
+                steps++;
+                var min = i;
+                for (var j = i + 1; j < roadArray.Length; j++)
+                {
+                    steps++;
+                    if (roadArray[min] > roadArray[j])
+                    {
+                        min = j;
+                    }
+                }
+
+                if (min != i)
+                {
+                    var lowerValue = roadArray[min];
+                    roadArray[min] = roadArray[i];
+                    roadArray[i] = lowerValue;
+                }
+            }
+            Console.WriteLine($"Steps while Selection Sorting {arrayName}: '{steps}' ");
+        }
     }
 }
 
