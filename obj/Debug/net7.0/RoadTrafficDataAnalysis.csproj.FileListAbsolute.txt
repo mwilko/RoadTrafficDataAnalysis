@@ -1,0 +1,15 @@
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/bin/Debug/net7.0/RoadTrafficDataAnalysis
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/bin/Debug/net7.0/RoadTrafficDataAnalysis.deps.json
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/bin/Debug/net7.0/RoadTrafficDataAnalysis.runtimeconfig.json
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/bin/Debug/net7.0/RoadTrafficDataAnalysis.dll
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/bin/Debug/net7.0/RoadTrafficDataAnalysis.pdb
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.csproj.AssemblyReference.cache
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.AssemblyInfoInputs.cache
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.AssemblyInfo.cs
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.csproj.CoreCompileInputs.cache
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.dll
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/refint/RoadTrafficDataAnalysis.dll
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.pdb
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/RoadTrafficDataAnalysis.genruntimeconfig.cache
+/Users/mwilko777/Downloads/RoadTrafficDataAnalysis-master/RoadTrafficDataAnalysis/obj/Debug/net7.0/ref/RoadTrafficDataAnalysis.dll
